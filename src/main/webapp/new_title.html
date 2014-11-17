@@ -1,0 +1,193 @@
+<div ng-controller="newTitleCtrl">
+    <div class="row">
+		<form>
+			<fieldset><legend>Title Information</legend>			
+				<div class="row col-xs-offset-1">
+					<div class="col-xs-9">
+					  <div class="row">
+						<div class="form-group col-xs-6"><label for="orgsTitle" class="control-label">Organization</label><select name="orgsTitle" id="orgsTitle" class="form-control"></select></div>
+					  </div>
+				      <div class="row">					  
+						<div class="form-group col-xs-3"><label for="accountId" class="control-label">Account</label><input type="text" name="accountId" id="accountId" class="form-control"></div>
+						<div class="form-group col-xs-3"><label for="issuedDate" class="control-label">Issued Date</label><input type="date" name="issuedDate" id="issuedDate" class="form-control"></div>
+						<div class="form-group col-xs-3"><label for="receivedDate" class="control-label">Received Date</label><input type="date" name="receivedDate" id="receivedDate" class="form-control"></div>
+					  </div>
+				      <div class="row">
+						<div class="form-group col-xs-3"><label for="titleState" class="control-label">Title State</label><select name="titleState" id="titleState" class="form-control"></select></div>
+						<div class="form-group col-xs-3"><label for="titleNum" class="control-label">Title Number</label><input type="text" name="titleNum" id="titleNum" class="form-control"></div>
+						<div class="form-group col-xs-3"><label for="titleMedia" class="control-label">Media</label> <img src="images/reports-icon.png"/> Paper</div>
+					  </div>
+				      <div class="row">
+						<div class="form-group col-xs-3"><label for="tagNo" class="control-label">Tag No</label><input type="text" name="tagNo" id="tagNo" class="form-control"></div>
+						<div class="checkbox col-xs-3 col-xs-offset-3" style="margin-top: 20px;"><label style="font-weight:700;"><input type="checkbox" name="titleArchive" id="titleArchive" style="margin:2px 5px 0 -5px;"> Archived</label></div>
+					  </div>
+				      <div class="row">
+						<div class="form-group col-xs-3"><label for="titleDocumentType" class="control-label">Document Type</label><select name="titleDocumentType" id="titleDocumentType" class="form-control"></select></div>
+						<div class="checkbox col-xs-3 col-xs-offset-3" style="margin-top: 20px;"><label style="font-weight:700;"><input type="checkbox" name="titleOriginal" id="titleOriginal" style="margin:2px 5px 0 -5px;"> Original</label></div>
+					  </div>
+					</div>
+					<div class="col-xs-3 horizontal-section">
+						<div class="form-group">
+							<label class="control-label">Match Date</label><p class="form-control-static inline-block">03/16/2014</p>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Release Date</label><p class="form-control-static inline-block">03/16/2014</p>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Lien Expiration Date</label><p class="form-control-static inline-block">03/16/2014</p>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Entry Date</label><p class="form-control-static inline-block">03/16/2014</p>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+
+
+			<fieldset><legend>Title Status</legend>
+				<div class="row col-xs-offset-1">
+					<div class="form-group col-xs-4"><label for="titleStatus" class="control-label">Status</label><select name="titleStatus" id="titleStatus" class="form-control"></select></div>
+					<div class="form-group col-xs-2"><label for="titleStatusCode" class="control-label">Code</label><input type="text" name="titleStatusCode" id="titleStatusCode" class="form-control"></div>
+					<div class="form-group col-xs-3"><label for="titleBrand" class="control-label">Brands</label><input type="text" name="titleBrand" id="titleBrand" class="form-control"></div>
+					<div class="form-group col-xs-3 horizontal-section">
+						<label for="lienPriority" class="control-label" style="width:50%;">Lien Priority</label><input type="text" name="lienPriority" id="lienPriority" class="form-control inline-block" style="width:50%;margin-bottom:5px;" size="5"/><br/>
+						<label for="numberOfLiens" class="control-label" style="width:50%;">Number of Liens</label><input type="text" name="numberOfLiens" id="numberOfLiens" class="form-control inline-block" style="width:50%;margin-bottom:5px;" size="5"/><br/>
+					</div>
+				</div>
+			</fieldset>
+			
+			<fieldset><legend>DMV Error/Warnings</legend>
+			</fieldset>
+
+			<fieldset><legend>Last ELT Transaction Detail</legend>
+			</fieldset>
+			
+			<fieldset><legend>Critical Data Comparison</legend>
+				<div class="col-xs-8 col-xs-offset-2 criticalDataCompDiv">
+                    <div class="row dataCompHeader">
+                        <label>Borrower (Loan)</label>
+                        <label>Registered Owner (Title)</label>
+                    </div>
+
+					<div class="row">     
+						<label>Lien Holder</label>
+						<input type="text" id="leftln" name="leftln" class="form-control">
+						<a id="btnln" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightln" name="rightln" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>Primary</label>
+						<input type="text" id="leftowner1" name="leftowner1" class="form-control">
+						<a id="btnowner1" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left text-primary"></span></a>
+						<input type="text" id="rightowner1" name="rightowner1" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>&nbsp;</label>
+						<input type="text" id="leftowner2" name="leftowner2" class="form-control">
+						<a id="btnowner2" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-flag text-success"></span></a>
+						<input type="text" id="rightowner2" name="rightowner2" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>&nbsp;</label>
+						<input type="text" id="leftowner3" name="leftowner3" class="form-control">
+						<a id="btnowner3" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-flag text-danger"></span></a>
+						<input type="text" id="rightowner3" name="rightowner3" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>&nbsp;</label>
+						<input type="text" id="leftowner4" name="leftowner4" class="form-control">
+						<a id="btnowner4" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightowner4" name="rightowner4" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>Address</label>
+						<input type="text" id="leftaddress" name="leftaddress" class="form-control">
+						<a id="btnaddress" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightaddress" name="rightaddress" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>&nbsp;</label>
+						<input type="text" id="leftaddress2" name="leftaddress2" class="form-control">
+						<a id="btnaddress2" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightaddress2" name="rightaddress2" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>City</label>
+						<input type="text" id="leftcity" name="leftcity" class="form-control">
+						<a id="btncity" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightcity" name="rightcity" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>State</label>
+						<input type="text" id="leftstate" name="leftstate" class="form-control">
+						<a id="btnstate" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightstate" name="rightstate" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>Zip</label>
+						<input type="text" id="leftzip" name="leftzip" class="form-control">
+						<a id="btnzip" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightzip" name="rightzip" class="form-control">     
+					</div>
+
+                    <div class="row dataCompHeader">                    
+                        <label>Vehicle</label>
+                        <label>Registered Vehicle</label>
+                    </div>
+
+					<div class="row">     
+						<label>VIN</label>
+						<input type="text" id="leftvin" name="leftvin" class="form-control">
+						<a id="btnvin" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightvin" name="rightvin" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>Type</label>
+						<input type="text" id="lefttype" name="lefttype" class="form-control">
+						<a id="btntype" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="righttype" name="righttype" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>Year</label>
+						<input type="text" id="leftyear" name="leftyear" class="form-control">
+						<a id="btnyear" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightyear" name="rightyear" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>Make</label>
+						<input type="text" id="leftmake" name="leftmake" class="form-control">
+						<a id="btnmake" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightmake" name="rightmake" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>Model</label>
+						<input type="text" id="leftmodel" name="leftmodel" class="form-control">
+						<a id="btnmodel" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightmodel" name="rightmodel" class="form-control">     
+					</div>
+
+					<div class="row">
+						<label>Mileage</label>
+						<input type="text" id="leftmileage" name="leftmileage" class="form-control">
+						<a id="btnmileage" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<input type="text" id="rightmileage" name="rightmileage" class="form-control">     
+					</div>
+                  </div>			
+			</fieldset>			
+		</form>
+    </div>
+</div>

@@ -1,0 +1,138 @@
+<div ng-controller="newLoanCtrl">
+	<div class="row">
+		<form>
+			<div class="row"><div class="pull-right"><label class="control-label">Loan Created:</label> <p class="form-control-static inline-block">Mar 15, 2014 by Dritan</p></div></div>
+			
+			<div class="row">
+			  <div class="text-center">
+				<div class="btn-group">
+				  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="fa fa-print"></span> Print <span class="caret"></span></button>
+				  <ul class="dropdown-menu menu-sm text-left" role="menu">
+					<li><a href="#">Print as PDF</a></li>
+					<li><a href="#">Print as Text</a></li>
+				  </ul>
+				</div>
+				<div class="btn-group">
+				  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="fa fa-hand-o-right"></span> Issue Transaction <span class="caret"></span></button>
+				  <ul class="dropdown-menu menu-sm text-left" role="menu">
+					<li><a href="#">NY Lien Filing</a></li>
+					<li><a href="#">NY Amend Lien Filing</a></li>
+				  </ul>
+				</div>
+				<a href="#" class="btn btn-sm btn-default"><span class="fa fa-floppy-o"></span> Save Record</a>
+				<a href="#" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-refresh"></span> Refresh Record</a>
+				<a href="#" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-plus-sign"></span> Add Collateral</a>
+				<a href="#" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-minus-sign"></span> Delete Record</a>
+			   </div>
+			</div>
+			<br/>
+			
+			<fieldset><legend>Account Detail</legend>
+				<div class="row col-xs-offset-1">
+					<div class="form-group col-xs-3"><label for="appId" class="control-label required">Account ID</label><input type="text" name="appId" id="appId" class="form-control" required=""></div>
+					<div class="form-group col-xs-3"><label for="orgsLoan" class="control-label">Organization</label><select name="orgsLoan" id="orgsLoan" class="form-control"></select></div>
+					<div class="form-group col-xs-3"><label for="dealerId" class="control-label">Dealer or Previous Lienholder</label><input type="text" name="dealerId" id="dealerId" class="form-control"></div>
+				</div>
+				<div class="row col-xs-offset-1">
+					<div class="form-group col-xs-3"><label for="custom1" class="control-label">Member Number</label><input type="text" name="custom1" id="custom1" class="form-control"></div>
+					<div class="form-group col-xs-3"><label for="custom2" class="control-label">Effective Date</label><input type="date" name="custom2" id="custom2" class="form-control"></div>
+					<div class="form-group col-xs-3"><label for="custom3" class="control-label">Proposed Title State</label><input type="text" name="custom3" id="custom3" class="form-control"></div>
+					<div class="form-group col-xs-3"><label for="custom4" class="control-label">Title County</label><input type="text" name="custom4" id="custom4" class="form-control"></div>
+				</div>
+			</fieldset>
+			
+			<fieldset><legend>Loan Information</legend>
+			<div class="row col-xs-offset-1">
+				<div class="form-group col-xs-2"><label for="loanType" class="control-label">Type</label><select name="loanType" id="loanType" class="form-control"></select></div>
+				<div class="form-group col-xs-3"><label for="loanStart" class="control-label required">Start</label><input type="date" name="loanStart" id="loanStart" class="form-control" required=""></div>
+				<div class="form-group col-xs-3"><label for="loanEnd" class="control-label">End</label><input type="date" name="loanEnd" id="loanEnd" class="form-control"></div>
+				<div class="form-group col-xs-2"><label for="loanBalance" class="control-label">Balance</label><input type="number" name="loanBalance" id="loanBalance" class="form-control"></div>
+				<div class="form-group col-xs-2"><label for="loanAmount" class="control-label">Loan Amount</label><input type="number" name="loanAmount" id="loanAmount" class="form-control"></div>
+			</div>
+			</fieldset>
+
+
+			<fieldset><legend>Borrower/Lessee</legend>
+			<div class="row">
+				<div class="col-xs-4 horizontal-section" style="padding-top: 20px;padding-left: 2px;">
+					<div class="form-group" style="margin-bottom:5px;"><label for="ownerType" class="control-label" style="width:35%;">Owner Type</label><select name="ownerType" id="ownerType" class="form-control" style="width:65%;"></select></div>
+					<div class="form-group" style="margin-bottom:5px;"><label for="ownerName" class="control-label required" style="width:35%;">Borrower(s)</label><input type="text" name="ownerName" id="ownerName" class="form-control" style="width:65%;" required="required"></div>
+					<div class="form-group" style="margin-bottom:5px;"><label for="coOwner1Name" class="control-label" style="width:35%;">(2)</label><input type="text" name="coOwner1Name" id="coOwner1Name" class="form-control" style="width:65%;"></div>
+					<div class="form-group" style="margin-bottom:5px;"><label for="coOwner2Name" class="control-label" style="width:35%;">(3)</label><input type="text" name="coOwner2Name" id="coOwner2Name" class="form-control" style="width:65%;"></div>
+					<div class="form-group" style="margin-bottom:5px;"><label for="coOwner3Name" class="control-label" style="width:35%;">(4)</label><input type="text" name="coOwner3Name" id="coOwner3Name" class="form-control" style="width:65%;"></div>
+				</div>
+				<div class="col-xs-8 horizontal-section">
+					<div class="row">
+						<div class="form-group col-xs-5"><label for="ownerAdd1" class="control-label">Address</label><input type="text" name="ownerAdd1" id="ownerAdd1" class="form-control"><span class="help-block">Address Line 1</span></div>
+						<div class="form-group col-xs-4"><label for="ownerAdd2" class="control-label">&nbsp;</label><input type="text" name="ownerAdd2" id="ownerAdd2" class="form-control"><span class="help-block">Line 2</span></div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-4"><input type="text" name="ownerCity" id="ownerCity" class="form-control"><span class="help-block">City</span></div>
+						<div class="form-group col-xs-3"><select name="ownerState" id="ownerState" class="form-control"></select><span class="help-block">State</span></div>
+						<div class="form-group col-xs-2"><input type="text" name="ownerZip" id="ownerZip" class="form-control"><span class="help-block">Zip</span></div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-4">
+							<!--label for="ownerPhone" class="control-label">Primary Phone</label-->
+							<div class="input-group">
+							  <input type="tel" name="ownerPhone" id="ownerPhone" class="form-control" placeholder="(xxx) xxx-xxxx">
+							  <div class="input-group-btn">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" name="ownerPhoneType" id="ownerPhoneType">Home <span class="caret"></span></button>
+								<ul class="dropdown-menu menu-md pull-right">
+									<li><a href="#"><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Work</a></li>
+									<li><a href="#"><i class="glyphicon glyphicon-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cell</a></li>
+								</ul>
+							  </div>
+							</div>
+							<span class="help-block">Primary Phone</span>
+						</div>
+						
+						<div class="form-group col-xs-4">
+							<!--label for="ownerSecPhone" class="control-label">Secondary Phone</label-->
+							<div class="input-group">
+							  <input type="tel" name="ownerSecPhone" id="ownerSecPhone" class="form-control" placeholder="(xxx) xxx-xxxx">
+							  <div class="input-group-btn">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" name="ownerSecPhoneType" id="ownerSecPhoneType">Home <span class="caret"></span></button>
+								<ul class="dropdown-menu menu-md pull-right">
+									<li><a href="#"><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Work</a></li>
+									<li><a href="#"><i class="glyphicon glyphicon-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cell</a></li>
+								</ul>
+							  </div>
+							</div>
+							<span class="help-block">Secondary Phone</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			</fieldset>
+
+
+			<fieldset><legend>Collateral Information</legend>
+			<div class="row col-xs-offset-1">
+				<div class="row">
+					<div class="form-group col-xs-3"><label for="coll1Vin" class="control-label required">VIN</label><input type="text" name="coll1Vin" id="coll1Vin" class="form-control" required=""></div>
+					<div class="form-group col-xs-3 col-xs-offset-3"><label for="coll1Start" class="control-label">Start Date</label><input type="date" name="coll1Start" id="coll1Start" class="form-control"></div>
+					<div class="form-group col-xs-3  horizontal-section"><label class="control-label">Lien</label><p class="form-control-static inline-block">Perfected</p><i class="fa fa-check text-success input-lg"></i><i class="fa fa-question text-danger input-lg"></i></div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-3"><label for="coll1Year" class="control-label">Year</label><input type="text" name="coll1Year" id="coll1Year" class="form-control" size="5"></div>
+					<div class="form-group col-xs-3"><label for="coll1Make" class="control-label">Make</label><input type="text" name="coll1Make" id="coll1Make" class="form-control"></div>
+					<div class="form-group col-xs-3"><label for="coll1Model" class="control-label">Model</label><input type="text" name="coll1Model" id="coll1Model" class="form-control"></div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-3"><label for="coll1Mileage" class="control-label">Mileage</label><input type="text" name="coll1Mileage" id="coll1Mileage" class="form-control"></div>
+					<div class="form-group col-xs-3"><label for="coll1Type" class="control-label">Type</label><select name="coll1Type" id="coll1Type" class="form-control"></select></div>
+				</div>
+				<div class="row">				
+					<div class="form-group col-xs-6"><label for="coll1Status" class="control-label">Status</label><select name="coll1Status" id="coll1Status" class="form-control"></select></div>
+					<div class="form-group col-xs-3"><label for="coll1OtherStatus" class="control-label">Status Code</label><input type="text" name="coll1OtherStatus" id="coll1OtherStatus" class="form-control"></div>
+					<div class="form-group col-xs-3">
+					  <div class="checkbox"><label style="font-weight:700;"><input type="checkbox" name="coll1Archived" id="coll1Archived" style="margin-top:2px;"> Archived</label></div>
+					  <div class="checkbox"><label style="font-weight:700;"><input type="checkbox" name="coll1TitlePreConv" id="coll1TitlePreConv" style="margin-top:2px;"> Title In File Pre-Conversion</label></div>
+					</div>
+				</div>
+			</div>
+			</fieldset>
+		</form>
+	</div>
+</div>

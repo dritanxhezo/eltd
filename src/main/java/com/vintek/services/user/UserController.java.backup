@@ -1,0 +1,255 @@
+package com.vintek.services.user;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Logger;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
+import javax.enterprise.inject.Produces;
+//import javax.faces.application.FacesMessage;
+//import javax.faces.context.FacesContext;
+//import javax.faces.event.ActionEvent;
+//import javax.faces.model.SelectItem;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+
+import com.vintek.database.model.user.Group;
+import com.vintek.database.model.user.Privilege;
+import com.vintek.database.model.user.User;
+import com.vintek.database.service.MojaveDB;
+import com.vintek.services.rest.ServiceException;
+import com.vintek.services.user.UserRegistration;
+import com.vintek.util.Encrypter;
+//import com.vintek.services.security.Secure;
+//import com.vintek.services.security.SecurityManager;
+//import com.vintek.services.security.SecurityToken;
+
+// The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an EL name
+// Read more about the @Model stereotype in this FAQ:
+// http://sfwk.org/Documentation/WhatIsThePurposeOfTheModelAnnotation
+@Model
+//@Secure
+public class UserController {
+
+   @Inject
+   private Logger log;
+
+   @Inject
+   private UserRegistration userRegistration;
+
+   @Inject
+   private MojaveDB mojaveDB;
+   
+//	@Inject
+//	private SecurityManager securityManager;
+   
+   private User currentUser;   
+   private List<String> groupsAvailable;
+   private List<String> orgsAvailable;
+   private List<String> orgsAssigned;
+   private List<String> selectStandardPrivileges;
+   private List<String> selectAdvancedPrivileges;
+   private List<String> selectSpecialPrivileges;
+   private List<String> selectInternalPrivileges;
+   private List<Boolean> selectedStandardPrivileges;
+   private List<Boolean> selectedAdvancedPrivileges;
+   private List<Boolean> selectedSpecialPrivileges;
+   private List<Boolean> selectedInternalPrivileges;
+   private static final String SESSION_USER = "user";
+   
+   private static Map<String, Object> timeZones;
+   static {
+	   timeZones = new LinkedHashMap<String, Object>();
+	   timeZones.put("EST5EDT","EST5EDT");
+	   timeZones.put("CST6CDT","CST6CDT");
+	   timeZones.put("MST7MDT","MST7MDT");
+	   timeZones.put("MST","MST");
+	   timeZones.put("PST8PDT","PST8PDT");
+	   timeZones.put("US/Alaska","US/Alaska");
+	   timeZones.put("AST","AST");
+	   timeZones.put("HST","HST");	   
+   }
+   
+   public void changeStatus() {
+	   System.out.println("changing status");
+   }   
+//   public void selectCurrentUser(ActionEvent e) {
+//	   selectCurrentUser(Integer)e.getComponent().getAttributes().get("user_id"));
+//   }
+   public void selectCurrentUser(Integer user_id) {
+	   //setCurrentUser((User)mojaveDB.find(User.class, user_id));
+   }
+   public void newUser() throws Exception {
+	   
+   }
+   public void cloneUser() throws Exception {
+	   
+   }
+   public void changePassword() throws Exception {
+	   
+   }
+   public void save() throws Exception {
+      userRegistration.register(currentUser);
+//      facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful"));
+      initNewUser();
+   }
+
+   public Map<String, Object> getTimeZones() {
+	   return timeZones;
+   }
+   @PostConstruct
+   public void init() {
+	   initNewUser();
+/*	   
+	   setGroupsAvailable(retriveGroupsAvailable());
+	   setOrgsAvailable(retriveOrgsAvailable());
+	   setOrgsAssigned(retriveOrgsAssigned());
+	   setSelectStandardPrivileges(retrievePrivileges("1"));
+	   setSelectAdvancedPrivileges(retrievePrivileges("2"));
+	   setSelectSpecialPrivileges(retrievePrivileges("3"));
+	   setSelectInternalPrivileges(retrievePrivileges("4"));
+*/
+	   selectedStandardPrivileges = new ArrayList<Boolean>();
+	   selectedAdvancedPrivileges = new ArrayList<Boolean>();
+	   selectedSpecialPrivileges = new ArrayList<Boolean>();
+	   selectedInternalPrivileges = new ArrayList<Boolean>();
+   }
+/*   
+   private List<SelectItem> retriveGroupsAvailable() {
+	   List<SelectItem> ga = new ArrayList<SelectItem>();
+	   List<Group> groups = mojaveDB.findWithNamedQuery("Group.ALL");
+	   for (Group group:groups) {
+		   ga.add(new SelectItem(Integer.toString(group.getId()),group.getName()));
+	   }
+	   return ga;
+   }   
+   private List<SelectItem> retriveOrgsAvailable() {
+	   List<SelectItem> oav = new ArrayList<SelectItem>();
+	   oav.add(new SelectItem("2794","1 High Level Auto"));
+	   oav.add(new SelectItem("2418","1199 SEIU FCU"));
+	   oav.add(new SelectItem("4081","11th Street Auto Sales"));
+	   oav.add(new SelectItem("3418","1ST BANK YUMA"));
+	   oav.add(new SelectItem("3272","1ST CHOICE CREDIT UNION"));
+	   oav.add(new SelectItem("4099","1st Colonial National Bank"));
+	   oav.add(new SelectItem("4034","1st Financial Federal Credit Union"));
+	   oav.add(new SelectItem("3621","1ST GATEWAY CREDIT UNION"));
+	   oav.add(new SelectItem("2643","1st Summit Bank"));
+	   oav.add(new SelectItem("3009","25th Street Auto Sales"));
+	   oav.add(new SelectItem("4748","2nd Chance Financing"));
+	   oav.add(new SelectItem("2819","30 West Auto Sales"));
+	   return oav;
+   }
+   private List<SelectItem> retriveOrgsAssigned() {
+	   List<SelectItem> oas = new ArrayList<SelectItem>();
+	   oas.add(new SelectItem("3009","25th Street Auto Sales"));
+	   oas.add(new SelectItem("4748","2nd Chance Financing"));
+	   oas.add(new SelectItem("2819","30 West Auto Sales"));	   
+	   return oas;
+   }
+   protected List<SelectItem> retrievePrivileges(String groupId) {
+		List<Privilege> privileges = mojaveDB.findWithNamedQuery("Privilege.ByGroup", groupId);
+		List<SelectItem> selectPrivileges = new ArrayList<SelectItem>();
+		for (Privilege privilege:privileges) {
+			selectPrivileges.add(new SelectItem(privilege.getPermissionName(), privilege.getDisplayName()));
+		}
+		return selectPrivileges;
+   }   
+*/
+   public void initNewUser() {
+	   setCurrentUser(new User());
+   }
+
+//	public List<SelectItem> getSelectAdvancedPrivileges() {
+//		return selectAdvancedPrivileges;
+//	}
+//	
+//	public void setSelectAdvancedPrivileges(List<SelectItem> selectAdvancedPrivileges) {
+//		this.selectAdvancedPrivileges = selectAdvancedPrivileges;
+//	}
+//	
+//	public List<SelectItem> getSelectSpecialPrivileges() {
+//		return selectSpecialPrivileges;
+//	}
+//	
+//	public void setSelectSpecialPrivileges(List<SelectItem> selectSpecialPrivileges) {
+//		this.selectSpecialPrivileges = selectSpecialPrivileges;
+//	}
+//	
+//	public List<SelectItem> getSelectInternalPrivileges() {
+//		return selectInternalPrivileges;
+//	}
+//	
+//	public void setSelectInternalPrivileges(List<SelectItem> selectInternalPrivileges) {
+//		this.selectInternalPrivileges = selectInternalPrivileges;
+//	}
+//	
+//	public List<SelectItem> getSelectStandardPrivileges() {
+//		   return selectStandardPrivileges;
+//	}
+//	
+//	public void setSelectStandardPrivileges(List<SelectItem> selectStandardPrivileges) {
+//		this.selectStandardPrivileges = selectStandardPrivileges;
+//	}
+
+	public User getCurrentUser() {
+		return currentUser;
+	}
+
+	public void setCurrentUser(User currentUser) {
+		this.currentUser = currentUser;
+	}
+
+	public List<Boolean> getSelectedStandardPrivileges() {
+		return selectedStandardPrivileges;
+	}
+
+	public void setSelectedStandardPrivileges(List<Boolean> selectedStandardPrivileges) {
+		this.selectedStandardPrivileges = selectedStandardPrivileges;
+	}
+
+	public List<Boolean> getSelectedAdvancedPrivileges() {
+		return selectedAdvancedPrivileges;
+	}
+
+	public void setSelectedAdvancedPrivileges(List<Boolean> selectedAdvancedPrivileges) {
+		this.selectedAdvancedPrivileges = selectedAdvancedPrivileges;
+	}
+
+	public List<Boolean> getSelectedSpecialPrivileges() {
+		return selectedSpecialPrivileges;
+	}
+
+	public void setSelectedSpecialPrivileges(List<Boolean> selectedSpecialPrivileges) {
+		this.selectedSpecialPrivileges = selectedSpecialPrivileges;
+	}
+
+	public List<Boolean> getSelectedInternalPrivileges() {
+		return selectedInternalPrivileges;
+	}
+
+	public void setSelectedInternalPrivileges(List<Boolean> selectedInternalPrivileges) {
+		this.selectedInternalPrivileges = selectedInternalPrivileges;
+	}
+//	public List<SelectItem> getGroupsAvailable() {
+//		return groupsAvailable;
+//	}
+//	public void setGroupsAvailable(List<SelectItem> groupsAvailable) {
+//		this.groupsAvailable = groupsAvailable;
+//	}
+//	public List<SelectItem> getOrgsAvailable() {
+//		return orgsAvailable;
+//	}
+//	public void setOrgsAvailable(List<SelectItem> orgsAvailable) {
+//		this.orgsAvailable = orgsAvailable;
+//	}
+//	public List<SelectItem> getOrgsAssigned() {
+//		return orgsAssigned;
+//	}
+//	public void setOrgsAssigned(List<SelectItem> orgsAssigned) {
+//		this.orgsAssigned = orgsAssigned;
+//	}
+}

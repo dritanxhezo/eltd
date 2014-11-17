@@ -1,0 +1,254 @@
+<div ng-controller="findLoanCtrl">
+	<link rel="stylesheet" type="text/css" href="lib/daterangepicker/daterangepicker-bs3.css" />
+	<link rel="stylesheet" type="text/css" href="lib/daterangepicker/philly-theme.css" />
+	<div class="row">
+		<form>
+			<fieldset><legend>Find Title Options</legend>
+			<div class="row">
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="selOrgs">Organizations</label>
+					<select id="selOrgs" name="selOrgs" class="form-control" multiple="multiple" size="5">
+					  <option value="1">4499 - USAA</option>
+					  <option value="2">1811 - VINtek Demo</option>
+					  <option value="3">2685 - Springleaf Financial #1</option>
+					  <option value="4">2096 - PATRIOT FEDERAL CU</option>
+					</select>
+				</div>
+				<div class="col-xs-9">
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="selSearchBy">Search By</label>
+						<select id="selSearchBy" name="selSearchBy" class="form-control">				
+							<option value="optTitleNumber">Title Number</option>
+							<option value="optTitleState">Title State</option>
+							<option value="optApplicationID">Account ID</option>
+							<option value="optMediaType">Media Type</option>
+							<option value="optLHName">Lien Holder Name</option>
+							<option value="optOwnerName">Registered Owner</option>
+							<option value="optOwnerAddress">Registered Owner Address</option>
+							<option value="optOwnerCity">Registered Owner City</option>
+							<option value="optOwnerState">Registered Owner State</option>
+							<option value="optOwnerZip">Registered Owner Zip</option>																			
+							<option value="optVIN">VIN</option>
+							<option value="optMake">Vehicle Make</option>
+							<option value="optModel">Vehicle Model</option>
+							<option value="optYear">Vehicle Year</option>
+						</select>
+					</div>
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="txtSearchFor">Search For</label>
+						<input id="txtSearchFor" name="txtSearchFor" type="text" class="form-control"/>
+					</div>
+					
+					<div class="form-group col-xs-6">				  
+					  <div class="col-xs-4" style="padding-left:0;padding-right:0;">
+						<label class="control-label" for="selDateRange">Limit by date</label>
+						<select id="selDateRange" name="selDateRange" class="form-control">				
+							<option value="optReceived">Received Date</option>
+							<option value="optIssue">Issue Date</option>
+							<option value="optMatch">Match Date</option>
+						</select>				
+					  </div>
+					  <div class="col-xs-8">
+						<label class="control-label" for="txtDateRange">Date Range</label>
+						<div class="input-group">
+							<input type="text" id="txtDateRange" name="txtDateRange" class="form-control date-range"/><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+						</div>
+					  </div>
+					</div>
+				</div>
+				<div class="col-xs-9">
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="selArchive">Archive Status</label>
+						<select id="selArchive" name="selArchive" class="form-control">
+						  <option value="optBoth">Both</option>
+						  <option value="optActive">Active Titles</option>
+						  <option value="optArchived">Archived Titles</option>
+						</select>
+					</div>
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="selCollType">Collateral Type</label>
+						<select id="selCollType" name=id="selCollType" class="form-control">
+							<option value="">All</option>
+							<option value="24">Auto</option>
+							<option value="25">Boat</option>
+							<option value="26">Trailer</option>
+							<option value="27">Motorcycle</option>
+							<option value="28">Mobile Home</option>
+							<option value="29">Bus</option>
+							<option value="30">Misc.</option>
+							<option value="31">MOTOR HOME</option>
+							<option value="32">Other</option>
+						</select>
+					</div>
+					<div class="form-group col-xs-3">
+						<label class="control-label" for="selSortBy">Sort By</label>					
+						<select id="selSortBy" name="selSortBy" class="form-control">
+							<option value="optOrgID">OrgID</option>
+							<option value="optTitleState">Title State</option>
+							<option value="optTitleNumber">Title Number</option>
+							<option value="optVIN">VIN</option>	
+							<option value="optApplicationID">Account ID</option>
+							<option value="optOwnerName">Registered Owner</option>
+							<option value="optReceiveDate">Receive Date</option>
+						</select>
+					</div>
+					<div class="form-group col-xs-3">
+						<div>
+						  <div class="radio">
+							<label for="sortDirection-0"><input type="radio" name="sortDirection" id="sortDirection-0" value="1" checked="checked">Descending</label>
+						  </div>
+						  <div class="radio">
+							<label for="sortDirection-1"><input type="radio" name="sortDirection" id="sortDirection-1" value="2">Ascending</label>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>			
+			</fieldset>
+
+			<fieldset><legend>Workflow Options</legend>
+			<div class="form-group col-xs-12">
+				<div class="col-xs-3">
+					<label class="control-label" for="selWfStatus">Status</label>
+					<select id="selWfStatus" name=id="selWfStatus" class="form-control">
+						<option value="none">None</option>
+						<option value="10">10 - Maintenance Release State to State</option>
+						<option value="130">130 - Submitted</option>
+						<option value="15">15 - Documents Discrepant</option>
+						<option value="2LH">2LH - 2nd Lien Filing Req</option>
+						<option value="300">300 - 1st Title App to Member</option>
+						<option value="300B">300B - Title App Prepared and directed to TPD</option>
+					</select>
+				</div>
+				<div class="form-group col-xs-2">
+					<label class="control-label" for="txtWfStatus">Status Code</label>
+					<input id="txtWfStatus" name="txtWfStatus" type="text" placeholder="Workflow Status Code" class="form-control input-md">
+				</div>					
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="selWfReason">Reason</label>
+					<select id="selWfReason" name="selWfReason" class="form-control">
+						<option value="">- Select -</option>
+						<option value="1100">1 - Copy of Driver's License</option>
+						<option value="1101">2 - Copy of Registration</option>
+						<option value="1102">3 - Odometer Reading</option>
+						<option value="1170">3P424-P1 - PLEDGOR1</option>
+						<option value="1171">3P424-P2 - PLEDGOR2</option>
+						<option value="1168">3PPA-P1 - PLEDGOR1</option>
+					</select>
+				</div>
+				<div class="form-group col-xs-4">
+					<input type="checkbox" id="chkShowUrgent" name="chkShowUrgent" style="margin-right: 10px;"/><label class="control-label" for="chkShowUrgent">Only Display if Urgent</label><br/>
+					<input type="checkbox" id="chkShowOverdue" name="chkShowOverdue" style="margin-right: 10px;"/><label class="control-label" for="chkShowOverdue">Only Display if Overdue</label>
+				</div>
+			</div>
+			<div class="form-group col-xs-12">
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="selWfDocument">Document</label>
+					<select id="selWfDocument" name="selWfDocument" class="form-control">
+						<option value="none">None</option>
+					</select>
+				</div>
+				<div class="form-group col-xs-3">
+					<label class="control-label" for="selWfState">Show</label>
+					<select id="selWfState" name="selWfState" class="form-control">
+						<option value="all">All Workflow Entries</option>											
+						<option value="open">Open Workflow Entries Only</option>
+						<option value="closed">Closed Workflow Entries Only</option>
+					</select>						
+				</div>
+			  <div class="form-group col-xs-3">
+				<label class="control-label" for="selWfDateRange">Workflow date range:</label>
+				<select id="selWfDateRange" name="selWfDateRange" class="form-control">
+					<option value="all">All Workflow Entries</option>
+					<option value="startdate">Start Date</option>
+					<option value="enddate">End Date</option>
+					<option value="duedate">Due Date</option>
+				</select>
+			  </div>
+			  <div class="form-group col-xs-3">
+				<label class="control-label" for="txtWfDateRange">Date Range</label>
+				<div class="input-group">
+					<input type="text" id="txtWfDateRange" name="txtWfDateRange" class="form-control date-range"/><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+				</div>
+			  </div>					
+			</div>
+			</fieldset>				
+			<hr/>
+			<div class="text-center">
+				<button id="btnSearch" name="btnSearch" class="btn btn-primary">Search</button>
+			</div>
+		</form>
+	</div>
+		
+	<div class="row clearfix" style="padding:20px 0;">
+		<div class="col-xs-12 column">
+			<div class="progress progress-striped hidden">
+				<div class="progress-bar progress-success">
+				</div>
+			</div>
+			<fieldset><legend>Results</legend>
+			<div class="dataTable withPagination">
+			<table class="table-condensed">
+				<thead>
+					<tr>
+						<th>OrgID</th>
+						<th>AccountID</th>
+						<th>Title State</th>
+						<th>Title Number</th>
+						<th>VIN</th>
+						<th>Registered Owner</th>
+						<th>Received Date</th>
+						<th>ELT</th>
+						<th>Year</th>
+						<th>Make</th>
+						<th>Model</th>
+						<th>Archive</th>
+					</tr>
+				</thead>
+				<tbody>						
+					<tr><td>4499</td>	<td><a href="#/workflow">1037050398</a></td>	<td>CA</td>	<td>ZENDWG</td>	<td>1B7GL22Z81S119093</td>	<td>WARREN,BRANDON</td>	<td>41676</td>	<td>Y</td>	<td>2001</td>	<td>DODG</td>	<td>PK</td>	<td>N</td></tr>
+					<tr><td>4499</td>	<td><a href="#/workflow">1041100999</a></td>	<td>WA</td>	<td>WW07710</td>	<td>1C6RR7MT1ES250120</td>	<td>NOYES,JACK W</td>	<td>41692</td>	<td>Y</td>	<td>2014</td>	<td>RAM</td>	<td>1500 4X4</td>	<td>N</td></tr>
+					<tr><td>4499</td>	<td><a href="#/workflow">1040165613</a></td>	<td>WA</td>	<td>WSU0993</td>	<td>WDCGG8HB6CF814115</td>	<td>DAWSON,RICHARD A</td>	<td>41692</td>	<td>Y</td>	<td>2012</td>	<td>MERZ</td>	<td>GLK350</td>	<td>N</td></tr>
+					<tr><td>4499</td>	<td><a href="#/workflow">1005306368</a></td>	<td>WA</td>	<td>WE00864</td>	<td>1FTFW1ET3DFD84635</td>	<td>SUNDEM,CHAD R</td>	<td>41692</td>	<td>Y</td>	<td>2013</td>	<td>FORD</td>	<td>F150</td>	<td>N</td></tr>
+					<tr><td>4499</td>	<td><a href="#/workflow">1032494880</a></td>	<td>WA</td>	<td>W350WSU</td>	<td>2GKFLTEK7D6113202</td>	<td>QUINTANA,ILEA MAY</td>	<td>41678</td>	<td>Y</td>	<td>2013</td>	<td>GMC</td>	<td>TERRAIN</td>	<td>N</td></tr>
+					<tr><td>4499</td>	<td><a href="#/workflow">1032494880</a></td>	<td>NY</td>	<td>VTK115449052</td>	<td>4S4BP62C977311308</td>	<td>BURKE,JEREMY J</td>	<td>41691</td>	<td>Y</td>	<td>2007</td>	<td>SUBAR</td>	<td></td>	<td>N</td></tr>
+					<tr class="selected"><td>4499</td>	<td><a href="#/workflow">1033621085</a></td>	<td>NY</td>	<td>VTK115449051</td>	<td>2T3DFREV5DW107362</td>	<td>J W &J M BACHER/TST J W &J M BACHER/STL</td>	<td>41691</td>	<td>Y</td>	<td>2013</td>	<td>TOYOT</td>	<td></td>	<td>N</td></tr>
+					<tr><td>4499</td>	<td><a href="#/workflow">1038934913</a></td>	<td>NY</td>	<td>VTK115449046</td>	<td>WBA3B5C51EP540917</td>	<td>CUEVAS-VARGAS,LIANA</td>	<td>41691</td>	<td>Y</td>	<td>2014</td>	<td>BMW</td>	<td></td>	<td>N</td></tr>
+				</tbody>
+			</table>
+			</div>
+			<ul class="pagination pagination-sm">
+			  <li><a href="#">&laquo;</a></li>
+			  <li><a href="#">1</a></li>
+			  <li><a href="#">2</a></li>
+			  <li><a href="#">3</a></li>
+			  <li><a href="#">4</a></li>
+			  <li><a href="#">5</a></li>
+			  <li><a href="#">&raquo;</a></li>
+			</ul>
+			</fieldset>
+		</div>
+	</div>
+	<script type="text/javascript" src="lib/daterangepicker/moment.js"></script>
+	<script type="text/javascript" src="lib/daterangepicker/daterangepicker.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.date-range').daterangepicker(
+				{ranges: {
+					 'Today': [moment(), moment()],
+					 'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+					 'Last 7 Days': [moment().subtract('days', 6), moment()],
+					 'Last 30 Days': [moment().subtract('days', 29), moment()],
+					 'This Month': [moment().startOf('month'), moment().endOf('month')],
+					 'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+					},
+					startDate: moment().subtract('days', 29),
+					endDate: moment()
+				},
+				function(start, end) {
+					$(this).val(start.format('M/D/YYYY') + ' - ' + end.format('M/D/YYYY'));
+				}
+			);
+		});
+	</script>
+</div>

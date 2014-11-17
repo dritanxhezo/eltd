@@ -1,0 +1,229 @@
+<div ng-controller="homeCtrl">
+	<link rel="stylesheet" type="text/css" media="screen,projection" href="lib/cssmap_v4_4/cssmap-usa/cssmap-usa.css"/>
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="row sm-info">
+				<div class="col-lg-10 col-lg-offset-1">
+					<span><b>{{user.details.name}}</b></span><br/>			
+					<span><small>Logged From: {{user.details.loggedFrom}}</small></span><br/>
+					<span><small>Last Login: {{user.details.lastLogin}}</small></span>
+				</div>
+			</div>
+			<h4><b>Most frequently used reports</b></h4>
+			<div class="list-group freq-reports">
+				<a href="#" class="list-group-item"><img src="images/reports-icon.png"/><span>Automated Archive Report</span></a>
+				<a href="#" class="list-group-item"><img src="images/reports-icon.png"/><span>Automated Release Report</span></a>
+				<a href="#" class="list-group-item"><img src="images/reports-icon.png"/><span>Match Errors (Active Accounts Only)</span></a>
+				<a href="#" class="list-group-item"><img src="images/reports-icon.png"/><span>Average State Processing Time</span></a>
+				<a href="#" class="list-group-item"><img src="images/reports-icon.png"/><span>CITI RELEASE REPORT</span></a>
+				<a href="#" class="list-group-item"><img src="images/reports-icon.png"/><span>Unrecognized Titles</span></a>
+			</div>
+			<p><a class="btn btn-default pull-right" href="#/reports">Go to Reports &raquo;</a></p>
+		</div>
+		<div class="col-lg-9">
+			<div class="row">
+				<div class="box col-lg-9">
+					<h3><b><i class="fa fa-tachometer"></i> Perfected Titles</b></h3>
+					<div class="panel panel-default">
+					  <!--div class="panel-heading"></div-->
+					  <div class="panel-body">
+						<div id="titlesChart" style="height: 300px;"></div>
+					  </div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="sm-info sm-stat">
+						<div class="boxvalue">
+							<span class="value">235</span>
+							<span class="title">ELT</span>
+						</div>
+						<div class="boxchart"><span class="inlinesparkline">3,4,4,7,5,6,8</span></div>
+					</div>
+					<div class="sm-info sm-stat">
+						<div class="boxvalue">
+							<span class="value">99%</span>
+							<span class="title">P Rate</span>
+						</div>
+						<div class="boxchart"><span class="dynamicsparkline">Loading..</span></div>
+					</div>
+					<div class="sm-info sm-stat">
+						<div class="boxvalue">
+							<span class="value">25</span>
+							<span class="title">M Errors</span>
+						</div>
+						<div class="boxchart"><span class="dynamicbar">Loading..</span></div>
+					</div>
+					<div class="sm-info sm-stat">
+						<div class="boxvalue">
+							<span class="value">65</span>
+							<span class="title">Rejected</span>
+						</div>
+						<div class="boxchart"><span class="inlinebar">1,3,4,5,3,5</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><br/>
+	<div class="row">
+		<div class="col-lg-5">
+			<h4><b>Title distribution by state</b></h4>
+			<blockquote>
+				<p><small><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</i></small></p>
+			</blockquote>
+			<div id="map" class="map-container">
+				<div>
+					<ul class="usa">
+						<li class="usa1"><a href="#alabama">Alabama</a></li>
+						<li class="usa2"><a href="#alaska">Alaska</a></li>
+						<li class="usa3"><a href="#arizona">Arizona</a></li>
+						<li class="usa4"><a href="#arkansas">Arkansas</a></li>
+						<li class="usa5"><a href="#california">California</a></li>
+						<li class="usa6"><a href="#colorado">Colorado</a></li>
+						<li class="usa7"><a href="#connecticut">Connecticut</a></li>
+						<li class="usa8"><a href="#delaware">Delaware</a></li>
+						<li class="usa9"><a href="#florida">Florida</a></li>
+						<li class="usa10"><a href="#georgia">Georgia</a></li>
+						<li class="usa11"><a href="#hawaii" class="tooltip-middle">Hawaii</a></li>
+						<li class="usa12"><a href="#idaho">Idaho</a></li>
+						<li class="usa13"><a href="#illinois">Illinois</a></li>
+						<li class="usa14"><a href="#indiana">Indiana</a></li>
+						<li class="usa15"><a href="#iowa">Iowa</a></li>
+						<li class="usa16"><a href="#kansas">Kansas</a></li>
+						<li class="usa17"><a href="#kentucky">Kentucky</a></li>
+						<li class="usa18"><a href="#louisiana">Louisiana</a></li>
+						<li class="usa19"><a href="#maine">Maine</a></li>
+						<li class="usa20"><a href="#maryland">Maryland</a></li>
+						<li class="usa21"><a href="#massachusetts">Massachusetts</a></li>
+						<li class="usa22"><a href="#michigan">Michigan</a></li>
+						<li class="usa23"><a href="#minnesota">Minnesota</a></li>
+						<li class="usa24"><a href="#mississippi">Mississippi</a></li>
+						<li class="usa25"><a href="#missouri">Missouri</a></li>
+						<li class="usa26"><a href="#montana">Montana</a></li>
+						<li class="usa27"><a href="#nebraska">Nebraska</a></li>
+						<li class="usa28"><a href="#nevada">Nevada</a></li>
+						<li class="usa29"><a href="#new-hampshire">New Hampshire</a></li>
+						<li class="usa30"><a href="#new-jersey">New Jersey</a></li>
+						<li class="usa31"><a href="#new-mexico">New Mexico</a></li>
+						<li class="usa32"><a href="#new-york">New York</a></li>
+						<li class="usa33"><a href="#north-carolina">North Carolina</a></li>
+						<li class="usa34"><a href="#north-dakota">North Dakota</a></li>
+						<li class="usa35"><a href="#ohio">Ohio</a></li>
+						<li class="usa36"><a href="#oklahoma">Oklahoma</a></li>
+						<li class="usa37"><a href="#oregon">Oregon</a></li>
+						<li class="usa38"><a href="#pennsylvania">Pennsylvania</a></li>
+						<li class="usa39"><a href="#rhode-island">Rhode Island</a></li>
+						<li class="usa40"><a href="#south-carolina">South Carolina</a></li>
+						<li class="usa41"><a href="#south-dakota">South Dakota</a></li>
+						<li class="usa42"><a href="#tennessee">Tennessee</a></li>
+						<li class="usa43"><a href="#texas">Texas</a></li>
+						<li class="usa44"><a href="#utah">Utah</a></li>
+						<li class="usa45"><a href="#vermont">Vermont</a></li>
+						<li class="usa46"><a href="#virginia">Virginia</a></li>
+						<li class="usa47"><a href="#washington">Washington</a></li>
+						<li class="usa48"><a href="#washington-dc">Washington DC</a></li>
+						<li class="usa49"><a href="#west-virginia">West Virginia</a></li>
+						<li class="usa50"><a href="#wisconsin">Wisconsin</a></li>
+						<li class="usa51"><a href="#wyoming">Wyoming</a></li>
+						<li class="usa52"><a href="#puerto-rico">Puerto Rico</a></li>
+					</ul>
+				</div>
+				<div id="stateInfo" class="stateInfo">
+				 <ul>
+				  <li id="texas">
+					<p class="header">Texas</p>
+					<p>Texas is the first state to adopt the ELT.</p>
+					<p>ELT Coverage: 100%.</p>
+					<p style="font-weight: bold;">USAA Titles: 1500.</p>
+					<p>ELT: 1200</p>
+				  </li>
+				  <li id="alaska">
+					<p class="header">Alaska</p>
+					<p>Alaska is the first state to adopt the ELT.</p>
+					<p>ELT Coverage: 100%.</p>
+					<p style="font-weight: bold;">USAA Titles: 1500.</p>
+					<p>ELT: 1200</p>
+				  </li>
+				  <li id="pennsylvania">
+					<p class="header">Pennsylvania</p>
+					<p>Alaska is the first state to adopt the ELT.</p>
+					<p>ELT Coverage: 100%.</p>
+					<p style="font-weight: bold;">USAA Titles: 1500.</p>
+					<p>ELT: 1200</p>
+				  </li>
+				  <li id="new-york">
+					<p class="header">New York</p>
+					<p>New York is the first state to adopt the ELT.</p>
+					<p>ELT Coverage: 100%.</p>
+					<p style="font-weight: bold;">USAA Titles: 1500.</p>
+					<p>ELT: 1200</p>
+				  </li>
+				  <li id="california">
+					<p class="header">California</p>
+					<p>California is the first state to adopt the ELT.</p>
+					<p>ELT Coverage: 100%.</p>
+					<p style="font-weight: bold;">USAA Titles: 1500.</p>
+					<p>ELT: 1200</p>
+				  </li>			  
+				 </ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-7">
+			<h4><b><i class="fa fa-bullhorn"></i> Broadcast Messages</b></h4>
+			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna... <a class="btn btn-link" href="#">Read more &raquo;</a></p>
+			<hr>
+			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+			<a class="btn btn-link" href="#">View details &raquo;</a></p>
+			<hr>
+			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+			<a class="btn btn-link" href="#">View details &raquo;</a></p>
+			<hr>
+			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+			<a class="btn btn-link" href="#">View details &raquo;</a></p>
+			<hr>
+		</div>
+	</div>
+	<div>
+		<script type="text/javascript" src="lib/sparkline-2.1.2/jquery.sparkline.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(function($) {
+					/** This code runs when everything has been loaded on the page */
+					/* Inline sparklines take their values from the contents of the tag */
+					$('.inlinesparkline').sparkline('html', {width:'90px',height:'30px', tooltipSuffix: ' perfected titles', type: 'line', lineColor: '#000000', fillColor: '#ffaa56'}); //3c79f2
+
+					/* Sparklines can also take their values from the first argument passed to the sparkline() function */
+					var myvalues = [10,8,5,7,4,4,1];
+					$('.dynamicsparkline').sparkline(myvalues, {type: 'bar', barColor: '#3c79f2', barWidth:'10px', height:'30px'}); //0052FF
+
+					/* The second argument gives options such as chart type */
+					var myvalues1 = [5,8,5,7,14,12,16];
+					$('.dynamicbar').sparkline(myvalues1, {type: 'bar', barColor: '#38aa00', barWidth:'10px', height:'30px'} ); //43CF01
+
+					/* Use 'html' instead of an array of values to pass options to a sparkline with data in the tag */
+					$('.inlinebar').sparkline('html', {type: 'bar', barColor: '#C46F02', barWidth:'10px', height:'30px', tooltipFormat: '{{value:levels}} - {{value}}', tooltipValueLookups: {levels: $.range_map({ ':2': 'Low', '3:6': 'Medium', '7:': 'High' })}} );
+				});
+			});
+		</script>
+		<script type="text/javascript" src="lib/cssmap_v4_4/jquery.cssmap.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(function($){
+					$('#map').cssMap({
+						'size' : 500,
+						'cities' : true,
+						'agentsListId' : '#stateInfo',
+						'agentsListSpeed' : 500,
+						'agentsListOnHover' : true						
+					});
+				});
+			});  
+		</script>
+		<!--[if lte IE 8]>
+			<script language="javascript" type="text/javascript" src="lib/flot/excanvas.min.js"></script>
+		<![endif]-->
+		<script src="lib/flot/jquery.flot.min.js"></script>
+		<script src="lib/flot/jquery.flot.resize.min.js"></script>
+		<script src="lib/flot/charts-flot.js"></script>
+	</div>
+</div>
