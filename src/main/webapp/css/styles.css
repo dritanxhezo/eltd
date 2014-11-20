@@ -393,6 +393,7 @@ div.footer-secondary li {
 }
 .footerIcon-badges-container li {
 	float: left;
+	list-style: none;
 }
 .patent-text {
 	font-size: 9px;

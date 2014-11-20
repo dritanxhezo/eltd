@@ -23,10 +23,10 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.vintek.database.model.report.ReportField;
+import com.vintek.services.controller.ReportController;
 import com.vintek.services.model.ReportCriteria;
 import com.vintek.services.model.ReportResult;
 import com.vintek.services.model.ReportTree;
-import com.vintek.services.user.ReportController;
 
 @Path("/report")
 @Stateless

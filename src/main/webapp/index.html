@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="myApp" ng-controller="MainController">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Vintek TIME"/>
+	<meta name="description" content="{{props.appName}}"/>
 	<meta name="keywords" content="" />
 	<meta name="robots" content="noindex,nofollow,noarchive,nocache,nosnippet" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	
-    <title>VINtek TIME</title>
+    <title>{{props.appName}}</title>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/3.1.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/3.1.0/css/bootstrap-theme.min.css"/>
@@ -16,9 +16,6 @@
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script-->
-	<!--script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script-->
-	<!--script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script-->	
     <!--[if lt IE 9]>
 		<script type="text/javascript" src="lib/html5shiv/3.7.0/html5shiv.js"></script>
 		<script type="text/javascript" src="lib/respondjs/1.4.2/respond.min.js"></script>
@@ -26,9 +23,9 @@
     <![endif]-->
 	
 	<link rel="stylesheet" type="text/css" href="css/dtstyles.css"/>
-	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 </head>
-<body ng-controller="MainController">
+<body>
 	<div class="pageheader bottom-shadow">
 	<!--top navbar -->
     <div class="navbar-xs navbar-inverse navbar-fixed-top">
@@ -86,8 +83,8 @@
 						<li><a ng-click="searchBy('titleByVin')">Title - by VIN</a></li>
 						<li><a ng-click="searchBy('titleByTitleNumber')">Title - by Title #</a></li>
 						<li class="divider"></li>
-						<li><a ng-click="searchBy('loanByVin')">Loan - by VIN</a></li>
-						<li><a ng-click="searchBy('loanByAccount')">Loan - by Account #</a></li>
+						<li><a ng-click="searchBy('loanByVin')">Account - by VIN</a></li>
+						<li><a ng-click="searchBy('loanByAccount')">Account - by Account #</a></li>
 					</ul>
 				  </div>
 				</div>
@@ -111,7 +108,7 @@
 					<li class="dropdown {{(isCurrentView('/new_loan')||isCurrentView('/new_title'))&&'active'}}">
 					  <a class="dropdown-toggle" data-toggle="dropdown"><img src="images/add.png"/> New <b class="caret"></b></a>
 					  <ul class="dropdown-menu">
-						<li class="{{isCurrentView('/new_loan')&&'active'}}"><a href="#/new_loan"><i class="fa fa-money"></i> Loan</a></li>
+						<li class="{{isCurrentView('/new_loan')&&'active'}}"><a href="#/new_loan"><i class="fa fa-money"></i> Account</a></li>
 						<li class="{{isCurrentView('/new_title')&&'active'}}"><a href="#/new_title"><span class="glyphicon glyphicon-folder-close"></span> Title</a></li>
 					  </ul>
 					</li>
@@ -119,7 +116,7 @@
 					<li class="dropdown {{(isCurrentView('/find_loan')||isCurrentView('/find_title'))&&'active'}}">
 					  <a class="dropdown-toggle" data-toggle="dropdown"><img src="images/zoom.png"/>Find <b class="caret"></b></a>
 					  <ul class="dropdown-menu">
-						<li class="{{isCurrentView('/find_loan')&&'active'}}"><a href="#/find_loan"><i class="fa fa-money"></i> Loan</a></li>
+						<li class="{{isCurrentView('/find_loan')&&'active'}}"><a href="#/find_loan"><i class="fa fa-money"></i> Account</a></li>
 						<li class="{{isCurrentView('/find_title')&&'active'}}"><a href="#/find_title"><span class="glyphicon glyphicon-folder-close"></span> Title</a></li>
 					  </ul>
 					</li>
@@ -148,23 +145,16 @@
 			<div class="footer-secondary">
 			   <div class="copyright">
 					<ul>
-						<li class="copyright-text">VINtek TIME version: <span app-version></span></li>
+						<li class="copyright-text">{{props.appName}} version: {{props.version}}</li>
 						<li class="copyright-text">&copy; 2014 Dealertrack, Inc. All rights reserved.</li>
 						<li class="patent-text">This product is covered by one or more US and foreign patents and pending patent applications.</li>
 					</ul>
 				</div>
 				<div class="footerIcon-badges-container">
-					<table width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
-					<tr>
-						<td width="135" align="center" valign="top"><img src="images/btnback-seal-89x44.gif"/><br/>
-						<a href="http://www.symantec.com/verisign/ssl-certificates" target="_blank" class="ssltext">ABOUT SSL CERTIFICATES</a>
-						</td>
-					</tr>
-					</table>
-					<!--ul>
+					<ul>
 						<li><a href="https://www.dealertrack.com/portal/landing-pages/security-awareness" target="_blank"><img width="131" height="51" alt="" border="none" src="images/secure.png"></a></li>
 						<li><a href="https://smp-01.verizonbusiness.com/certinfo/certified.do?CERTID=0210003I200" target="_blank"><img width="145" height="51" alt="" border="none" src="images/trusted.png"></a> </li>
-					</ul-->
+					</ul>
 				</div>
 			</div>		
 		</div>

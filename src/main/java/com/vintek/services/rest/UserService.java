@@ -22,7 +22,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.vintek.database.model.user.User;
-import com.vintek.services.user.UserController;
+import com.vintek.services.controller.UserController;
 
 @Path("/user")
 @Stateless

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp.controllers.MainController', [])
-	.controller('MainController', function ($scope, $location, UserService) {
+	.controller('MainController', function ($scope, $location, UserService, AppPropertiesService) {
 		init();
 		function init() {
 			UserService.get(function(data){
@@ -11,6 +11,12 @@ angular.module('myApp.controllers.MainController', [])
 						$scope.selectedOrg = org;
 					}
 				});
+			});
+			AppPropertiesService.get(function(data){
+				$scope.props = {
+						version: data.version,
+						appName: data.appName
+				};
 			});
 		};
 		$scope.isCurrentView = function(path){

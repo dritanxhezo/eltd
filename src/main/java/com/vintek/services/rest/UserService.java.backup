@@ -24,8 +24,8 @@ import javax.ws.rs.core.Response;
 
 import com.vintek.database.model.user.User;
 import com.vintek.database.service.MojaveDB;
-import com.vintek.services.user.UserController;
-import com.vintek.services.user.UserRegistration;
+import com.vintek.services.controller.UserController;
+import com.vintek.services.controller.UserRegistration;
 
 @Path("/users")
 public class UserService {

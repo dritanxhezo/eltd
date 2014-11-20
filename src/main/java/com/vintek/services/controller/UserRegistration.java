@@ -1,4 +1,4 @@
-package com.vintek.services.user;
+package com.vintek.services.controller;
 
 import java.util.logging.Logger;
 

@@ -1,6 +1,6 @@
 {
     "notiCounts": [
-        {"name":"Lien Inquiry Results","count": 2,"icon":"glyphicon glyphicon-volume-up"},
+        {"name":"DMV Responses","count": 2,"icon":"glyphicon glyphicon-volume-up"},
         {"name":"Broadcast Messages","count": 13,"icon":"glyphicon glyphicon-transfer"}
     ],
     "assignedOrgs": [

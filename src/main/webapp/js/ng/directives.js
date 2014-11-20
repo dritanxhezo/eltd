@@ -6,4 +6,9 @@ angular.module('myApp.directives', []).
     return function(scope, elm, attrs) {
       elm.text(version);
     };
-  }]);
+  }]).
+  directive('appName', ['appName', function(appName) {
+	return function(scope, elm, attrs) {
+	  elm.text(appName);
+	};
+  }]);  

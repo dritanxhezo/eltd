@@ -10,8 +10,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
+import com.vintek.services.controller.LoginController;
 import com.vintek.services.rest.ServiceException;
-import com.vintek.services.user.LoginController;
 
 @Path("/login")
 public class LoginService {

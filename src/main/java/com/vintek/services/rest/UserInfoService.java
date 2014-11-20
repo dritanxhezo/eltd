@@ -11,8 +11,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.vintek.services.controller.UserInfoController;
 import com.vintek.services.model.UserAnnouncement;
-import com.vintek.services.user.UserInfoController;
 
 @Path("/userinfo")
 public class UserInfoService {

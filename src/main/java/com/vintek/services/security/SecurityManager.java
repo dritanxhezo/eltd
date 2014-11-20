@@ -26,7 +26,7 @@ public class SecurityManager {
 	public static void main(String[] args) {
 		System.out.println("hello");
 		SecurityManager manager = new SecurityManager();
-		System.out.println(manager.isAllowed("com.vintek.services.user.UserController", "login", null));
+		System.out.println(manager.isAllowed("com.vintek.services.controller.UserController", "login", null));
 		
 	}
 	

@@ -1,40 +1,20 @@
-package com.vintek.services.user;
+package com.vintek.services.controller;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Model;
-import javax.enterprise.inject.Produces;
-//import javax.faces.application.FacesMessage;
-//import javax.faces.context.FacesContext;
-//import javax.faces.event.ActionEvent;
-//import javax.faces.model.SelectItem;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
 import javax.ws.rs.core.Response;
 
-import com.vintek.database.model.user.Group;
-import com.vintek.database.model.user.Privilege;
 import com.vintek.database.model.user.User;
-import com.vintek.database.model.user.UserPermission;
 import com.vintek.database.service.MojaveDB;
 import com.vintek.services.rest.ServiceException;
-import com.vintek.services.user.UserRegistration;
-import com.vintek.util.Encrypter;
-import com.vintek.util.LogPerformance;
 import com.vintek.services.security.SecuredService;
 import com.vintek.services.security.SecurityManager;
 import com.vintek.services.security.SecurityToken;
+import com.vintek.util.Encrypter;
 
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an EL name
 // Read more about the @Model stereotype in this FAQ:
