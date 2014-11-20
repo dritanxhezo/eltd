@@ -11,10 +11,6 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
-//import javax.faces.application.FacesMessage;
-//import javax.faces.context.FacesContext;
-//import javax.faces.event.ActionEvent;
-//import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityNotFoundException;
@@ -27,8 +23,6 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.ValidationException;
 import javax.validation.Validator;
 import javax.ws.rs.core.Response;
-
-import localdomain.localhost.domain.Country;
 
 import com.vintek.database.model.user.Group;
 import com.vintek.database.model.user.Privilege;
