@@ -196,6 +196,7 @@ body {/*padding-top: 30px;padding-bottom: 10px;*/}
 	color:#262626;
 	white-space: nowrap;
 }
+.dataTable table td a {color: #262626;font-weight: bold;}
 /*.dataTable table td.centered{text-align:center;}*/
 .dataTable table tr:hover td{
 	background:-o-linear-gradient(top,#ffffff,#dadada);
