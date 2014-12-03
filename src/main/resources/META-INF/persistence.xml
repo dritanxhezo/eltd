@@ -5,6 +5,9 @@
 	<persistence-unit name="MojavePU">
 		<non-jta-data-source>java:jboss/datasources/eltd</non-jta-data-source>
 		<mapping-file>com/vintek/database/model/user/queries.xml</mapping-file>
+		<class>com.vintek.database.model.loan.LoanDetail</class>
+		<class>com.vintek.database.model.loan.StateCollateralTransaction</class>
+		<class>com.vintek.database.model.loan.StateTransactionError</class>
 		<properties>
 			<!-- property name="hibernate.hbm2ddl.auto" value="update" /-->
 			<!-- property name="hibernate.hbm2ddl.auto" value="create-drop" /-->
