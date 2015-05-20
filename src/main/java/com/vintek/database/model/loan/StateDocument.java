@@ -28,7 +28,8 @@ public class StateDocument implements Serializable {
 	private String description;
 
 	@Column(name="Document")
-	private Object document;
+	@Lob
+	private byte[] document;
 
 	@Column(name="Filename")
 	private String filename;
@@ -79,11 +80,11 @@ public class StateDocument implements Serializable {
 		this.description = description;
 	}
 
-	public Object getDocument() {
+	public byte[] getDocument() {
 		return this.document;
 	}
 
-	public void setDocument(Object document) {
+	public void setDocument(byte[] document) {
 		this.document = document;
 	}
 

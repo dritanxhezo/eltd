@@ -17,7 +17,8 @@ public class TitleBrand implements Serializable {
 	private int id;
 
 	@Column(name="Brand")
-	private Object brand;
+	@Lob
+	private String brand;
 
 	//bi-directional many-to-one association to Title
 	@ManyToOne
@@ -35,11 +36,11 @@ public class TitleBrand implements Serializable {
 		this.id = id;
 	}
 
-	public Object getBrand() {
+	public String getBrand() {
 		return this.brand;
 	}
 
-	public void setBrand(Object brand) {
+	public void setBrand(String brand) {
 		this.brand = brand;
 	}
 

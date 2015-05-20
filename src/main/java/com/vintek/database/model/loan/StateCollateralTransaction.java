@@ -20,6 +20,9 @@ public class StateCollateralTransaction implements Serializable {
 	@Column(name="CollateralID")
 	private int collateralID;
 
+	@Column(name="TransactionID")
+	private int transactionID;
+	
 	//bi-directional many-to-one association to StateTransactionError
 	@OneToMany(mappedBy="stateCollateralTransaction")
 	private List<StateTransactionError> stateTransactionErrors;
@@ -43,6 +46,14 @@ public class StateCollateralTransaction implements Serializable {
 		this.collateralID = collateralID;
 	}
 
+	public int getTransactionID() {
+		return transactionID;
+	}
+
+	public void setTransactionID(int transactionID) {
+		this.transactionID = transactionID;
+	}
+
 	public List<StateTransactionError> getStateTransactionErrors() {
 		return this.stateTransactionErrors;
 	}
@@ -64,5 +75,4 @@ public class StateCollateralTransaction implements Serializable {
 
 		return stateTransactionError;
 	}
-
 }
